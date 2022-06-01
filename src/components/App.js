@@ -2,6 +2,7 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         name="confirm"
         title="Вы уверены?"
         children="" />
+      <ImagePopup />
 
 
 
@@ -125,19 +127,7 @@ function App() {
       </div>
     </div>
 
-    <div class="popup popup_type_image">
-      <figure class="popup__image-container">
-        <img
-          src="#"
-          alt="#"
-          class="popup__image" />
-        <figcaption class="popup__image-caption">#</figcaption>
-        <button
-          class="popup__cancel-button"
-          type="button"
-          aria-label="Закрыть окно"></button>
-      </figure>
-    </div>
+
 
     <div class="popup popup_type_confirm">
       <div class="popup__container content__element">

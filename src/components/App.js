@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -7,14 +8,13 @@ function App() {
     <div class="content">
       <Header />
       <Main />
+      <Footer />
 
 
 
 
 
-    <footer class="footer content__element">
-      <p class="footer__copyright">&copy;&nbsp;2022 Дмитрий Калугин</p>
-    </footer>
+
 
 
     <div class="popup popup_type_edit-profile">

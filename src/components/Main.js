@@ -59,7 +59,10 @@ function Main(props) {
 
       <section class="cards content__element" aria-label="Фотографии">
         {cards.map(card => (
-          <Card card={card} />
+          <Card
+            card={card}
+            onCardClick = {props.onCardClick}
+            />
         ))}
       </section>
     </main>

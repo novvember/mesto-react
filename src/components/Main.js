@@ -1,9 +1,11 @@
 import React from "react";
 import api from "../utils/api";
 
+import defaultAvatar from '../images/user-avatar_default.svg';
+
 function Main(props) {
 
-  const [userAvatar, setUserAvatar] = React.useState('#');
+  const [userAvatar, setUserAvatar] = React.useState(defaultAvatar);
   const [userName, setUserName] = React.useState('. . .');
   const [userDescription, setUserDescription ] = React.useState('');
 

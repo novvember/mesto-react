@@ -79,8 +79,8 @@ function App() {
               placeholder="Имя"
               name="name"
               id="name-input"
-              minlength="2"
-              maxlength="40"
+              minLength="2"
+              maxLength="40"
               required />
             <span className="popup__input-error name-input-error"></span>
           </label>
@@ -91,8 +91,8 @@ function App() {
               id="job-input"
               placeholder="Профессия"
               name="job"
-              minlength="2"
-              maxlength="200"
+              minLength="2"
+              maxLength="200"
               required />
             <span className="popup__input-error job-input-error"></span>
           </label>
@@ -114,8 +114,8 @@ function App() {
               id="title-input"
               placeholder="Название"
               name="name"
-              minlength="2"
-              maxlength="30"
+              minLength="2"
+              maxLength="30"
               required />
             <span className="popup__input-error title-input-error"></span>
           </label>

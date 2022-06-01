@@ -1,6 +1,6 @@
 import React from "react";
 import api from "../utils/api";
-
+import Card from "./Card";
 import defaultAvatar from '../images/user-avatar_default.svg';
 
 function Main(props) {
@@ -28,7 +28,6 @@ function Main(props) {
 
   return (
     <main>
-
       <section class="profile content__element">
         <div class="profile__avatar">
           <img
@@ -58,39 +57,10 @@ function Main(props) {
           onClick={props.onAddPlace}></button>
       </section>
 
-
       <section class="cards content__element" aria-label="Фотографии">
-
         {cards.map(card => (
-
-          <div class="card" key={card._id}>
-          <img
-            src={card.link}
-            alt={card.name}
-            class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title">{card.name}</h2>
-            <div class="card__like">
-              <button
-              type="button"
-              class="card__like-button"
-              aria-label="Добавить в избранное"></button>
-              <span class="card__like-count"></span>
-            </div>
-          </div>
-          <button
-            type="button"
-            class="card__delete-button"
-            aria-label="Удалить"></button>
-          </div>
-
-        ))};
-
-
-
-
-
-
+          <Card card={card} />
+        ))}
       </section>
     </main>
   );

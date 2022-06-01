@@ -1,13 +1,13 @@
 function ImagePopup(props) {
 
   return (
-    <div className={`popup popup_type_image`  + (props.isOpen && ' popup_opened')}>
+    <div className={`popup popup_type_image`  + (props.card !== null && ' popup_opened')}>
     <figure className="popup__image-container">
       <img
-        src={props.card.link}
-        alt={props.card.name}
+        src={props.card !== null ? props.card.link : '#'}
+        alt={props.card !== null ? props.card.name : '#'}
         className="popup__image" />
-      <figcaption className="popup__image-caption">{props.card.name}</figcaption>
+      <figcaption className="popup__image-caption">{props.card !== null ? props.card.name : '#'}</figcaption>
       <button
         className="popup__cancel-button"
         type="button"

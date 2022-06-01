@@ -48,7 +48,6 @@ function App() {
         onCardClick={handleCardClick}
         />
       <Footer />
-
       <PopupWithForm
         name="change-avatar"
         title="Обновить аватар"
@@ -68,7 +67,6 @@ function App() {
           </label>
         )}
         />
-
       <PopupWithForm
         name="edit-profile"
         title="Редактировать профиль"
@@ -104,7 +102,6 @@ function App() {
           </>
         )}
         />
-
       <PopupWithForm
         name="add-card"
         title="Новое место"
@@ -138,7 +135,6 @@ function App() {
           </>
         )}
         />
-
       <PopupWithForm
         name="confirm"
         title="Вы уверены?"
@@ -146,7 +142,6 @@ function App() {
         isOpen={false}
         onClose={closeAllPopups}
         />
-
       <ImagePopup
         card = {selectedCard}
         onClose = {closeAllPopups}

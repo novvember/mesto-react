@@ -29,8 +29,6 @@ function App() {
     setIsAddPlacePopupOpen(false);
   }
 
-
-
   return (
     <div class="content">
       <Header />

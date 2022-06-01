@@ -5,25 +5,25 @@ function Card(props) {
   }
 
   return (
-    <div class="card">
+    <div className="card">
       <img
         src={props.card.link}
         alt={props.card.name}
-        class="card__image"
+        className="card__image"
         onClick={handleCardClick} />
-      <div class="card__description">
-        <h2 class="card__title">{props.card.name}</h2>
-        <div class="card__like">
+      <div className="card__description">
+        <h2 className="card__title">{props.card.name}</h2>
+        <div className="card__like">
           <button
             type="button"
-            class="card__like-button"
+            className="card__like-button"
             aria-label="Добавить в избранное"></button>
-          <span class="card__like-count"></span>
+          <span className="card__like-count"></span>
         </div>
       </div>
       <button
         type="button"
-        class="card__delete-button"
+        className="card__delete-button"
         aria-label="Удалить"></button>
     </div>
   );

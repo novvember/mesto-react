@@ -36,7 +36,7 @@ function App() {
   }
 
   return (
-    <div class="content">
+    <div className="content">
       <Header />
       <Main
         onEditProfile={handleEditProfileClick}
@@ -52,15 +52,15 @@ function App() {
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
         children={(
-          <label class="popup__field">
+          <label className="popup__field">
             <input
               type="url"
-              class="popup__input popup__input_type_link"
+              className="popup__input popup__input_type_link"
               id="avatar-link-input"
               placeholder="Ссылка на картинку"
               name="link"
               required />
-            <span class="popup__input-error avatar-link-input-error"></span>
+            <span className="popup__input-error avatar-link-input-error"></span>
           </label>
         )}
         />
@@ -72,29 +72,29 @@ function App() {
         onClose={closeAllPopups}
         children={(
           <>
-          <label class="popup__field">
+          <label className="popup__field">
             <input
               type="text"
-              class="popup__input popup__input_type_name"
+              className="popup__input popup__input_type_name"
               placeholder="Имя"
               name="name"
               id="name-input"
               minlength="2"
               maxlength="40"
               required />
-            <span class="popup__input-error name-input-error"></span>
+            <span className="popup__input-error name-input-error"></span>
           </label>
-          <label class="popup__field">
+          <label className="popup__field">
             <input
               type="text"
-              class="popup__input popup__input_type_job"
+              className="popup__input popup__input_type_job"
               id="job-input"
               placeholder="Профессия"
               name="job"
               minlength="2"
               maxlength="200"
               required />
-            <span class="popup__input-error job-input-error"></span>
+            <span className="popup__input-error job-input-error"></span>
           </label>
           </>
         )}
@@ -107,27 +107,27 @@ function App() {
         onClose={closeAllPopups}
         children={(
           <>
-          <label class="popup__field">
+          <label className="popup__field">
             <input
               type="text"
-              class="popup__input popup__input_type_title"
+              className="popup__input popup__input_type_title"
               id="title-input"
               placeholder="Название"
               name="name"
               minlength="2"
               maxlength="30"
               required />
-            <span class="popup__input-error title-input-error"></span>
+            <span className="popup__input-error title-input-error"></span>
           </label>
-          <label class="popup__field">
+          <label className="popup__field">
             <input
               type="url"
-              class="popup__input popup__input_type_link"
+              className="popup__input popup__input_type_link"
               id="link-input"
               placeholder="Ссылка на картинку"
               name="link"
               required />
-            <span class="popup__input-error link-input-error"></span>
+            <span className="popup__input-error link-input-error"></span>
           </label>
           </>
         )}

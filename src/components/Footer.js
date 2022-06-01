@@ -3,8 +3,8 @@ function Footer() {
   const currentYear = currentDate.getFullYear();
 
   return (
-    <footer class="footer content__element">
-      <p class="footer__copyright">&copy;&nbsp;{currentYear <= 2022 ? '2022' : `2022&ndash;${currentYear}`} Студенты Яндекс.Практикума</p>
+    <footer className="footer content__element">
+      <p className="footer__copyright">&copy;&nbsp;{currentYear <= 2022 ? '2022' : `2022&ndash;${currentYear}`} Студенты Яндекс.Практикума</p>
     </footer>
   );
 }

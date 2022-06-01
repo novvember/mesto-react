@@ -1,4 +1,4 @@
-import './App.css';
+import logo from './images/header__logo_light.svg';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
 
       <header class="header content__element content__element_type_header">
         <img
-          src="<%=require('./images/header__logo_light.svg')%>"
+          src={logo}
           alt="Сервис Место-Россия. Логотип"
           class="header__logo" />
       </header>
@@ -26,7 +26,7 @@ function App() {
         </div>
         <div class="profile__info">
           <div class="profile__name-block">
-            <h1 class="profile__name"></h1>
+            <h1 class="profile__name">. . .</h1>
             <button type="button" class="profile__button profile__button_type_edit" aria-label="Редактировать профиль"></button>
           </div>
           <p class="profile__job"></p>

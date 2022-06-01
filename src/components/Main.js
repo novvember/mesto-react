@@ -8,6 +8,7 @@ function Main(props) {
   const [userAvatar, setUserAvatar] = React.useState(defaultAvatar);
   const [userName, setUserName] = React.useState('. . .');
   const [userDescription, setUserDescription ] = React.useState('');
+  const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
     api.getUserInfo()
@@ -15,6 +16,12 @@ function Main(props) {
         setUserAvatar(res.avatar);
         setUserName(res.name);
         setUserDescription(res.about);
+      })
+      .catch(err => console.error(err));
+
+    api.getInitialCards()
+      .then(res => {
+        setCards(res);
       })
       .catch(err => console.error(err));
   }, []);
@@ -53,29 +60,37 @@ function Main(props) {
 
 
       <section class="cards content__element" aria-label="Фотографии">
-        <template id="card">
-          <div class="card">
-            <img
-              src="#"
-              alt="#"
-              class="card__image" />
-            <div class="card__description">
-              <h2 class="card__title">#</h2>
-              <div class="card__like">
-                <button
-                type="button"
-                class="card__like-button"
-                aria-label="Добавить в избранное"></button>
-                <span class="card__like-count"></span>
-              </div>
 
-            </div>
-            <button
+        {cards.map(card => (
+
+          <div class="card" key={card._id}>
+          <img
+            src={card.link}
+            alt={card.name}
+            class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title">{card.name}</h2>
+            <div class="card__like">
+              <button
               type="button"
-              class="card__delete-button"
-              aria-label="Удалить"></button>
+              class="card__like-button"
+              aria-label="Добавить в избранное"></button>
+              <span class="card__like-count"></span>
+            </div>
           </div>
-        </template>
+          <button
+            type="button"
+            class="card__delete-button"
+            aria-label="Удалить"></button>
+          </div>
+
+        ))};
+
+
+
+
+
+
       </section>
     </main>
   );

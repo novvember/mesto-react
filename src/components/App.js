@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
+import PopupWithForm from "./PopupWithForm";
 
 function App() {
   return (
@@ -10,8 +11,22 @@ function App() {
       <Main />
       <Footer />
 
-
-
+      <PopupWithForm
+        name="edit-profile"
+        title="Редактировать профиль"
+        children="" />
+      <PopupWithForm
+        name="change-avatar"
+        title="Обновить аватар"
+        children="" />
+      <PopupWithForm
+        name="add-card"
+        title="Новое место"
+        children="" />
+      <PopupWithForm
+        name="confirm"
+        title="Вы уверены?"
+        children="" />
 
 
 

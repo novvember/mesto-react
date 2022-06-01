@@ -23,6 +23,12 @@ function App() {
     setIsAddPlacePopupOpen(true);
   }
 
+  function closeAllPopups() {
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+  }
+
 
 
   return (
@@ -40,6 +46,7 @@ function App() {
         title="Обновить аватар"
         buttonText="Сохранить"
         isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
         children={(
           <label class="popup__field">
             <input
@@ -59,6 +66,7 @@ function App() {
         title="Редактировать профиль"
         buttonText="Сохранить"
         isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
         children={(
           <>
           <label class="popup__field">
@@ -94,6 +102,7 @@ function App() {
         title="Новое место"
         buttonText="Создать"
         isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
         children={(
           <>
           <label class="popup__field">
@@ -127,6 +136,7 @@ function App() {
         title="Вы уверены?"
         buttonText="Да"
         isOpen={false}
+        onClose={closeAllPopups}
         />
       <ImagePopup />
     </div>

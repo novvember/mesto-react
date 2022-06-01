@@ -1,16 +1,12 @@
-import logo from '../images/header__logo_light.svg';
+import Header from "./Header";
 
 function App() {
   return (
 
     <div class="content">
+      <Header />
 
-      <header class="header content__element content__element_type_header">
-        <img
-          src={logo}
-          alt="Сервис Место-Россия. Логотип"
-          class="header__logo" />
-      </header>
+
 
     <main>
 

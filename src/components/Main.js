@@ -3,7 +3,7 @@ import api from "../utils/api";
 import Card from "./Card";
 import defaultAvatar from '../images/user-avatar_default.svg';
 
-function Main(props) {
+function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
   const [userAvatar, setUserAvatar] = React.useState(defaultAvatar);
   const [userName, setUserName] = React.useState('. . .');
@@ -37,7 +37,7 @@ function Main(props) {
           <button className="profile__avatar-button"
             type="button"
             aria-label="Обновить аватар"
-            onClick={props.onEditAvatar}></button>
+            onClick={onEditAvatar}></button>
         </div>
         <div className="profile__info">
           <div className="profile__name-block">
@@ -46,7 +46,7 @@ function Main(props) {
               type="button"
               className="profile__button profile__button_type_edit"
               aria-label="Редактировать профиль"
-              onClick={props.onEditProfile}></button>
+              onClick={onEditProfile}></button>
           </div>
           <p className="profile__job">{userDescription}</p>
         </div>
@@ -54,7 +54,7 @@ function Main(props) {
           type="button"
           className="profile__button profile__button_type_add"
           aria-label="Добавить фотографию"
-          onClick={props.onAddPlace}></button>
+          onClick={onAddPlace}></button>
       </section>
 
       <section className="cards content__element" aria-label="Фотографии">
@@ -62,7 +62,7 @@ function Main(props) {
           <Card
             card={card}
             key={card._id}
-            onCardClick = {props.onCardClick}
+            onCardClick = {onCardClick}
             />
         ))}
       </section>

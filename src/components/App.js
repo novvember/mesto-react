@@ -38,20 +38,22 @@ function App() {
   return (
     <div className="content">
       <Header />
+
       <Main
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
         onCardClick={handleCardClick}
         />
+
       <Footer />
+
       <PopupWithForm
         name="change-avatar"
         title="Обновить аватар"
         buttonText="Сохранить"
         isOpen={isEditAvatarPopupOpen}
-        onClose={closeAllPopups}
-        children={(
+        onClose={closeAllPopups}>
           <label className="popup__field">
             <input
               type="url"
@@ -62,16 +64,14 @@ function App() {
               required />
             <span className="popup__input-error avatar-link-input-error"></span>
           </label>
-        )}
-        />
+      </PopupWithForm>
+
       <PopupWithForm
         name="edit-profile"
         title="Редактировать профиль"
         buttonText="Сохранить"
         isOpen={isEditProfilePopupOpen}
-        onClose={closeAllPopups}
-        children={(
-          <>
+        onClose={closeAllPopups}>
           <label className="popup__field">
             <input
               type="text"
@@ -96,17 +96,14 @@ function App() {
               required />
             <span className="popup__input-error job-input-error"></span>
           </label>
-          </>
-        )}
-        />
+      </PopupWithForm>
+
       <PopupWithForm
         name="add-card"
         title="Новое место"
         buttonText="Создать"
         isOpen={isAddPlacePopupOpen}
-        onClose={closeAllPopups}
-        children={(
-          <>
+        onClose={closeAllPopups}>
           <label className="popup__field">
             <input
               type="text"
@@ -129,9 +126,8 @@ function App() {
               required />
             <span className="popup__input-error link-input-error"></span>
           </label>
-          </>
-        )}
-        />
+      </PopupWithForm>
+
       <PopupWithForm
         name="confirm"
         title="Вы уверены?"
@@ -139,10 +135,12 @@ function App() {
         isOpen={false}
         onClose={closeAllPopups}
         />
+
       <ImagePopup
         card = {selectedCard}
         onClose = {closeAllPopups}
         />
+
     </div>
   );
 }

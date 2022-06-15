@@ -4,6 +4,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
+import EditProfilePopup from './EditProfilePopup';
 
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
@@ -80,37 +81,10 @@ function App() {
             </label>
         </PopupWithForm>
 
-        <PopupWithForm
-          name="edit-profile"
-          title="Редактировать профиль"
-          buttonText="Сохранить"
+        <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}>
-            <label className="popup__field">
-              <input
-                type="text"
-                className="popup__input popup__input_type_name"
-                placeholder="Имя"
-                name="name"
-                id="name-input"
-                minLength="2"
-                maxLength="40"
-                required />
-              <span className="popup__input-error name-input-error"></span>
-            </label>
-            <label className="popup__field">
-              <input
-                type="text"
-                className="popup__input popup__input_type_job"
-                id="job-input"
-                placeholder="Профессия"
-                name="job"
-                minLength="2"
-                maxLength="200"
-                required />
-              <span className="popup__input-error job-input-error"></span>
-            </label>
-        </PopupWithForm>
+          onClose={closeAllPopups}
+          />
 
         <PopupWithForm
           name="add-card"

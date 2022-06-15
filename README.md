@@ -13,3 +13,7 @@
 
 ## Открыть сайт в браузере
 [novvember.github.io/mesto-react](https://novvember.github.io/mesto-react/)
+
+
+## Статус
+В разработке

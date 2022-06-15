@@ -10,6 +10,10 @@
 * React
   - использование Create React App
   - хуки `useState` и `useEffect`
+  - поднятие стейта
+  - глобальный стейт через React Context
+  - управляемые компоненты в элементах формы
+  - использование реф для прямого доступа к DOM-элементам
 
 ## Открыть сайт в браузере
 [novvember.github.io/mesto-react](https://novvember.github.io/mesto-react/)

@@ -3,21 +3,16 @@ import api from "../utils/api";
 import Card from "./Card";
 import defaultAvatar from '../images/user-avatar_default.svg';
 
+import CurrentUserContext from "../contexts/CurrentUserContext";
+
 function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
-  const [userAvatar, setUserAvatar] = React.useState(defaultAvatar);
-  const [userName, setUserName] = React.useState('. . .');
-  const [userDescription, setUserDescription ] = React.useState('');
+  const currentUser = React.useContext(CurrentUserContext);
+
   const [cards, setCards] = React.useState([]);
 
+
   React.useEffect(() => {
-    api.getUserInfo()
-      .then(res => {
-        setUserAvatar(res.avatar);
-        setUserName(res.name);
-        setUserDescription(res.about);
-      })
-      .catch(err => console.error(err));
 
     api.getInitialCards()
       .then(res => {
@@ -31,7 +26,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
       <section className="profile content__element">
         <div className="profile__avatar">
           <img
-            src={userAvatar}
+            src={currentUser.avatar}
             alt="Фотография пользователя"
             className="profile__avatar-image" />
           <button className="profile__avatar-button"
@@ -41,14 +36,14 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
         </div>
         <div className="profile__info">
           <div className="profile__name-block">
-            <h1 className="profile__name">{userName}</h1>
+            <h1 className="profile__name">{currentUser.name}</h1>
             <button
               type="button"
               className="profile__button profile__button_type_edit"
               aria-label="Редактировать профиль"
               onClick={onEditProfile}></button>
           </div>
-          <p className="profile__job">{userDescription}</p>
+          <p className="profile__job">{currentUser.about}</p>
         </div>
         <button
           type="button"

@@ -6,6 +6,7 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from "./EditAvatarPopup";
+import AddPlacePopup from "./AddPlacePopup";
 
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
@@ -96,6 +97,15 @@ function App() {
       .catch(console.error);
   }
 
+  function handleAddPlace(newPlaceData) {
+    api.addNewCard(newPlaceData)
+      .then(newCard => {
+        setCards((state) => [newCard, ...state]);
+        closeAllPopups();
+      })
+      .catch(console.error);
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="content">
@@ -124,35 +134,11 @@ function App() {
           onUpdateUser={handleUpdateUser}
           />
 
-        <PopupWithForm
-          name="add-card"
-          title="Новое место"
-          buttonText="Создать"
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}>
-            <label className="popup__field">
-              <input
-                type="text"
-                className="popup__input popup__input_type_title"
-                id="title-input"
-                placeholder="Название"
-                name="name"
-                minLength="2"
-                maxLength="30"
-                required />
-              <span className="popup__input-error title-input-error"></span>
-            </label>
-            <label className="popup__field">
-              <input
-                type="url"
-                className="popup__input popup__input_type_link"
-                id="link-input"
-                placeholder="Ссылка на картинку"
-                name="link"
-                required />
-              <span className="popup__input-error link-input-error"></span>
-            </label>
-        </PopupWithForm>
+        <AddPlacePopup
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+        onAddPlace={handleAddPlace} />
+
 
         <PopupWithForm
           name="confirm"

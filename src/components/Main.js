@@ -34,7 +34,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
       <section className="profile content__element">
         <div className="profile__avatar">
           <img
-            src={currentUser.avatar}
+            src={currentUser.avatar ?? defaultAvatar}
             alt="Фотография пользователя"
             className="profile__avatar-image" />
           <button className="profile__avatar-button"
@@ -44,7 +44,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
         </div>
         <div className="profile__info">
           <div className="profile__name-block">
-            <h1 className="profile__name">{currentUser.name}</h1>
+            <h1 className="profile__name">{currentUser.name ?? '. . .'}</h1>
             <button
               type="button"
               className="profile__button profile__button_type_edit"

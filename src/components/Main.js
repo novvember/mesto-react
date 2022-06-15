@@ -13,13 +13,21 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
 
   React.useEffect(() => {
-
     api.getInitialCards()
       .then(res => {
         setCards(res);
       })
-      .catch(err => console.error(err));
+      .catch(console.error);
   }, []);
+
+  function handleCardLike(card) {
+    const isLiked = card.likes.some(person => person._id === currentUser._id);
+    api.toggleLike(card._id, isLiked)
+      .then(newCard => {
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+      })
+      .catch(console.error);
+  }
 
   return (
     <main>
@@ -58,6 +66,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
             card={card}
             key={card._id}
             onCardClick = {onCardClick}
+            onCardLike = {handleCardLike}
             />
         ))}
       </section>

@@ -171,9 +171,6 @@ class Api {
       .then(res => {
         throw new Error(res.message);
       });
-    })
-    .then(res => {
-      return res.likes;
     });
   }
 
@@ -195,9 +192,6 @@ class Api {
       .then(res => {
         throw new Error(res.message);
       });
-    })
-    .then(res => {
-      return res.likes;
     });
   }
 

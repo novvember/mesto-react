@@ -9,10 +9,13 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
 
+  /**
+   * Сброс значений инпутов при открытии/закрытии попапа или при смене пользователя
+   */
   React.useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   function handleChangeName(event) {
     const text = event.target.value;

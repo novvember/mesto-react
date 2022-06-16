@@ -3,11 +3,11 @@ import React from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
+import ConfirmActionPopup from "./ConfirmActionPopup";
 
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
@@ -20,8 +20,9 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
     React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  // Выбранная карточка для попапа с картинкой
+  // Выбранные карточки для обрабтки попапами
   const [selectedCard, setSelectedCard] = React.useState(null);
+  const [toBeDeletedCard, setToBeDeletedCard] = React.useState(null);
   // Пользователь
   const [currentUser, setCurrentUser] = React.useState({});
   // Карточки
@@ -59,6 +60,7 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard(null);
+    setToBeDeletedCard(null);
   }
 
   function handleCardClick(card) {
@@ -98,21 +100,26 @@ function App() {
       .catch(console.error);
   }
 
-  function handleCardDelete(card) {
-    const cardId = card._id;
-    api
-      .deleteCard(cardId)
-      .then(() => {
-        setCards((state) => state.filter((card) => card._id !== cardId));
-      })
-      .catch(console.error);
-  }
-
   function handleAddPlace(newPlaceData) {
     api
       .addNewCard(newPlaceData)
       .then((newCard) => {
         setCards((state) => [newCard, ...state]);
+        closeAllPopups();
+      })
+      .catch(console.error);
+  }
+
+  function handleCardDelete(card) {
+    setToBeDeletedCard(card);
+  }
+
+  function handleConfirmDelete() {
+    const cardId = toBeDeletedCard._id;
+    api
+      .deleteCard(cardId)
+      .then(() => {
+        setCards((state) => state.filter((card) => card._id !== cardId));
         closeAllPopups();
       })
       .catch(console.error);
@@ -153,12 +160,10 @@ function App() {
           onAddPlace={handleAddPlace}
         />
 
-        <PopupWithForm
-          name="confirm"
-          title="Вы уверены?"
-          buttonText="Да"
-          isOpen={false}
+        <ConfirmActionPopup
+          isOpen={!!toBeDeletedCard}
           onClose={closeAllPopups}
+          onConfirm={handleConfirmDelete}
         />
 
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />

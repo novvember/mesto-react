@@ -1,15 +1,14 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
-
+function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const avatarRef = React.useRef();
 
   /**
    * Сброс значений инпутов при открытии/закрытии попапа или при смене пользователя
    */
   React.useEffect(() => {
-    avatarRef.current.value = '';
+    avatarRef.current.value = "";
   }, [isOpen]);
 
   function handleSubmit(event) {
@@ -27,19 +26,20 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      >
-        <label className="popup__field">
-          <input
-            type="url"
-            className="popup__input popup__input_type_link"
-            id="avatar-link-input"
-            placeholder="Ссылка на картинку"
-            name="link"
-            required
-            ref={avatarRef} />
-          <span className="popup__input-error avatar-link-input-error"></span>
-        </label>
-      </PopupWithForm>
+    >
+      <label className="popup__field">
+        <input
+          type="url"
+          className="popup__input popup__input_type_link"
+          id="avatar-link-input"
+          placeholder="Ссылка на картинку"
+          name="link"
+          required
+          ref={avatarRef}
+        />
+        <span className="popup__input-error avatar-link-input-error"></span>
+      </label>
+    </PopupWithForm>
   );
 }
 

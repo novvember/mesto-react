@@ -28,16 +28,11 @@ function App() {
   const [cards, setCards] = React.useState([]);
 
   /**
-   * Получение информации о пользователе при открытии страницы
+   * Получение информации о пользователе и исходных карточек при открытии страницы
    */
   React.useEffect(() => {
     api.getUserInfo().then(setCurrentUser).catch(console.error);
-  }, []);
 
-  /**
-   * Получение исходных карточек для отображения на странице
-   */
-  React.useEffect(() => {
     api
       .getInitialCards()
       .then((res) => {

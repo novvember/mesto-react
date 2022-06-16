@@ -1,4 +1,5 @@
 import React from "react";
+
 import Card from "./Card";
 import defaultAvatar from "../images/user-avatar_default.svg";
 

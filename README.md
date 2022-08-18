@@ -3,8 +3,13 @@
 
 Выполнен в рамках серии проектных работ в Яндекс.Практикуме по профессии «Веб-разработчик» (от начала изучения React, спринт 10, и далее).
 
-Это React-версия ранее разработанного проекта (на чистом JavaScript с применением ООП):
-[github.com/novvember/mesto](https://github.com/novvember/mesto)
+Это часть работы над проектом Mesto:
+
+1. [Mesto](https://github.com/novvember/mesto)
+2. Mesto (версия на React) ⬅ *этот репозиторий*
+3. [Mesto (версия на авторизацией и регистрацией)](https://github.com/novvember/react-mesto-auth)
+4. [Mesto (версия для сервера)](https://github.com/novvember/express-mesto-gha)
+5. [Mesto (версия с фронтендом и бэкендом)](https://github.com/novvember/react-mesto-api-full)
 
 ## Стек технологий
 * React
@@ -19,6 +24,7 @@
 [novvember.github.io/mesto-react](https://novvember.github.io/mesto-react/)
 
 
-## Статус
-Дальнейшая разработка и добавление функциональности, связанной с бэкендом, будет проводиться в отдельном репозиторим: github.com/novvember/mesto-react-auth
+## Статус разработки
+✅ *Завершено*
 
+Дальнейшая разработка ведется в репозитории [Mesto (версия на авторизацией и регистрацией)](https://github.com/novvember/react-mesto-auth)
